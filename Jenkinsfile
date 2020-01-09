@@ -12,6 +12,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing'
+                input "Is it okay to continue?"
             }
         }
         stage('Deploy') {
