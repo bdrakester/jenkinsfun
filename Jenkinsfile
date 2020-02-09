@@ -1,23 +1,11 @@
 pipeline {
-    agent any
-    options {
-        skipStagesAfterUnstable()
-    }	    
+    agent {
+        docker { image 'node:7-alpine' }
+    }
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building'
-            }
-        }
         stage('Test') {
             steps {
-                echo 'Testing'
-                input "Is it okay to continue?"
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying'
+                sh 'node --version'
             }
         }
     }
